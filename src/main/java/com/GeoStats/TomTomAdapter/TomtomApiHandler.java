@@ -1,22 +1,30 @@
-package com.GeoStats.TomTomAdapter.poi;
+package com.GeoStats.TomTomAdapter;
 
 import java.util.Scanner;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class TomtomApi {
+@Service
+public class TomtomApiHandler {
     
     private final String key;
     private static int responseCode;
-
-    public TomtomApi(String key) {
+    
+    public TomtomApiHandler(String key) {
         this.key = key;
     }
 
-    public String getData(String query) {
+    public TomtomApiHandler() {
+        this("r6SBW2lsmjrN88T2GgG7ddAwmtmJiwiC");
+    }
+
+    public String getDataFromQuery(String query) {
         String urlString = String.format("https://api.tomtom.com/search/2/poiSearch/%s.json?key=%s", query, key);
         System.out.println(responseCode); // temporary
         return query(urlString);
