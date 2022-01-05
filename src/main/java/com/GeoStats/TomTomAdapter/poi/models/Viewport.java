@@ -1,4 +1,4 @@
-package com.GeoStats.TomTomAdapter.pointsOfInterests.models;
+package com.GeoStats.TomTomAdapter.poi.models;
 
 public class Viewport {
     private Position topLeftPoint;
