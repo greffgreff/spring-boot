@@ -2,7 +2,6 @@ package com.GeoStats.TomTomAdapter;
 
 import java.util.Scanner;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -40,7 +39,7 @@ public class TomtomApiHandler {
         }
         catch (MalformedURLException e) { }
         
-        responseCode = 500;
+        responseCode = 500; // temporary
         return null;
     }
     
