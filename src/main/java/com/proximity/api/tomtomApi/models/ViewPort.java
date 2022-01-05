@@ -1,6 +1,6 @@
 package com.proximity.api.tomtomApi.models;
 
-public class ViewPort {
+public class Viewport {
     
     private Position topLeftPoint;
     private Position btmRightPoint;
