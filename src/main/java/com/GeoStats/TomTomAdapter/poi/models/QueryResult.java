@@ -6,6 +6,8 @@ public class QueryResult {
     @JsonProperty("summary") private QuerySummary summary;
     @JsonProperty("results") private PoiQueryResult[] queryResults;
 
+    public QueryResult() {}
+    
     public QueryResult(QuerySummary summary, PoiQueryResult[] queryResults) {
         this.summary = summary;
         this.queryResults = queryResults;

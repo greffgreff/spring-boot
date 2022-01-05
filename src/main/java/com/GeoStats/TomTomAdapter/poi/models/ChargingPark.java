@@ -9,6 +9,8 @@ public class ChargingPark {
     @JsonProperty("currentType") private String currentType;
     @JsonProperty("voltageV") private int voltageV;
 
+    public ChargingPark() {}
+
     public ChargingPark(String connectorType, double ratedPowerKW, int currentA, String currentType, int voltageV) {
         this.connectorType = connectorType;
         this.ratedPowerKW = ratedPowerKW;

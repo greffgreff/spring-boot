@@ -6,6 +6,8 @@ public class EntryPoint {
     @JsonProperty("type") private String type;
     @JsonProperty("position") private Position position;
 
+    public EntryPoint() {}
+    
     public EntryPoint(String type, Position position) {
         this.type = type;
         this.position = position;

@@ -6,6 +6,8 @@ public class Viewport {
     @JsonProperty("topLeftPoint") private Position topLeftPoint;
     @JsonProperty("btmRightPoint") private Position btmRightPoint;
 
+    public Viewport() {}
+    
     public Viewport(Position topLeftPoint, Position btmRightPoint) {
         this.topLeftPoint = topLeftPoint;
         this.btmRightPoint = btmRightPoint;

@@ -7,6 +7,8 @@ public class RelatedPoi {
     @JsonProperty("id") private String id;
     @JsonProperty("relationType") private RelationType relationType;
 
+    public RelatedPoi() {}
+    
     public RelatedPoi(String id, RelationType relationType) {
         this.id = id;
         this.relationType = relationType;

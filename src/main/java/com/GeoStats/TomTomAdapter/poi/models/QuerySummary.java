@@ -12,6 +12,8 @@ public class QuerySummary {
     @JsonProperty("fuzzyLevel") private int fuzzyLevel;
     @JsonProperty("geoBias") private Position geoBias;
 
+    public QuerySummary() {}
+    
     public QuerySummary(String query, String queryType, int queryTime, int numResults, int offset, int totalResults, int fuzzyLevel, Position geoBias) {
         this.query = query;
         this.queryType = queryType;

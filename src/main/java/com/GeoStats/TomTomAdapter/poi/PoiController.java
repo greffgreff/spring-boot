@@ -22,6 +22,6 @@ public class PoiController {
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public String getQueryResult(@RequestParam(required = false) String query) {
-        return poiController.getParsedDataFromQuery(Optional.ofNullable(query).orElse("beach"));
+        return poiController.getParsedDataFromQuery(Optional.ofNullable(query).orElse("beach")).toString();
 	}
 }

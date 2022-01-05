@@ -8,6 +8,8 @@ public class MapCode {
     @JsonProperty("territory") private String territory;
     @JsonProperty("code") private String code;
 
+    public MapCode() {}
+    
     public MapCode(String type, String fullMapCode, String territory, String code) {
         this.type = type;
         this.fullMapCode = fullMapCode;
