@@ -17,6 +17,11 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>com.tomtom.speedtools</groupId>
+			<artifactId>json</artifactId>
+			<version>3.4.2</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
