@@ -1,10 +1,12 @@
 package com.GeoStats.TomTomAdapter.poi.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class MapCode {
-    private String type;
-    private String fullMapCode;
-    private String territory;
-    private String code;
+    @JsonProperty("type") private String type;
+    @JsonProperty("fullMapCode") private String fullMapCode;
+    @JsonProperty("territory") private String territory;
+    @JsonProperty("code") private String code;
 
     public MapCode(String type, String fullMapCode, String territory, String code) {
         this.type = type;

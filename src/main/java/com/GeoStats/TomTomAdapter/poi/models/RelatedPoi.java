@@ -1,10 +1,11 @@
 package com.GeoStats.TomTomAdapter.poi.models;
 
 import com.GeoStats.TomTomAdapter.poi.models.enums.RelationType;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class RelatedPoi {
-    private String id;
-    private RelationType relationType;
+    @JsonProperty("id") private String id;
+    @JsonProperty("relationType") private RelationType relationType;
 
     public RelatedPoi(String id, RelationType relationType) {
         this.id = id;

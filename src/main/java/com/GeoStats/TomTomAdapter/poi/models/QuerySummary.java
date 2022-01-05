@@ -1,14 +1,16 @@
 package com.GeoStats.TomTomAdapter.poi.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class QuerySummary {
-    private String query;
-    private String queryType;
-    private int queryTime;
-    private int numResults;
-    private int offset;
-    private int totalResults;
-    private int fuzzyLevel;
-    private Position geoBias;
+    @JsonProperty("query") private String query;
+    @JsonProperty("queryType") private String queryType;
+    @JsonProperty("queryTime") private int queryTime;
+    @JsonProperty("numResults") private int numResults;
+    @JsonProperty("offset") private int offset;
+    @JsonProperty("totalResults") private int totalResults;
+    @JsonProperty("fuzzyLevel") private int fuzzyLevel;
+    @JsonProperty("geoBias") private Position geoBias;
 
     public QuerySummary(String query, String queryType, int queryTime, int numResults, int offset, int totalResults, int fuzzyLevel, Position geoBias) {
         this.query = query;

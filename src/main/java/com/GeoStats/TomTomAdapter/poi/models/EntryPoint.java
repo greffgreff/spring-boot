@@ -1,8 +1,10 @@
 package com.GeoStats.TomTomAdapter.poi.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class EntryPoint {
-    private String type;
-    private Position position;
+    @JsonProperty("type") private String type;
+    @JsonProperty("position") private Position position;
 
     public EntryPoint(String type, Position position) {
         this.type = type;

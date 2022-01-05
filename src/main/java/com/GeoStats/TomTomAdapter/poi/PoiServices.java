@@ -15,8 +15,16 @@ public class PoiServices {
         this.tomtomApiHandler = tomtomApiHandler;
     }
 
-    public String getParsedDataFromQuery(String query) {
+    public String queryApi(String query) {
         return tomtomApiHandler.getDataFromQuery(query);
+    }
+    
+    public String getParsedDataFromQuery(String query) {
+        String result = queryApi(query);
+          
+        Library lib = mapper.readValue(jsonString, Library.class);
+
+        return null;
     }
 
     // private void getDefaultDataFromLocation() {

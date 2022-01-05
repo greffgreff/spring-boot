@@ -1,19 +1,21 @@
 package com.GeoStats.TomTomAdapter.poi.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class PoiQueryResult {
-    private String type;
-    private int id;
-    private double score;
-    private double distance;
-    private String info;
-    private Poi poi;
-    private RelatedPoi[] relatedPois;
-    private MapCode[] mapCodes;
-    private String address;
-    private Position position;
-    private Viewport viewport;
-    private EntryPoint[] entryPoints;
-    private ChargingPark[] chargingParks;
+    @JsonProperty("type") private String type;
+    @JsonProperty("id") private int id;
+    @JsonProperty("score") private double score;
+    @JsonProperty("distance") private double distance;
+    @JsonProperty("info") private String info;
+    @JsonProperty("poi") private Poi poi;
+    @JsonProperty("relatedPois") private RelatedPoi[] relatedPois;
+    @JsonProperty("mapCodes") private MapCode[] mapCodes;
+    @JsonProperty("address") private String address;
+    @JsonProperty("position") private Position position;
+    @JsonProperty("viewport") private Viewport viewport;
+    @JsonProperty("entryPoint") private EntryPoint[] entryPoints;
+    @JsonProperty("chargingPark")  private ChargingPark[] chargingParks;
 
     public PoiQueryResult(String type, int id, double score, double distance, String info, Poi poi, RelatedPoi[] relatedPois, MapCode[] mapCodes, String address, Position position, Viewport viewport, EntryPoint[] entryPoints, ChargingPark[] chargingParks) {
         this.type = type;

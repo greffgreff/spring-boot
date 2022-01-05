@@ -1,9 +1,10 @@
 package com.GeoStats.TomTomAdapter.poi.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Viewport {
-    
-    private Position topLeftPoint;
-    private Position btmRightPoint;
+    @JsonProperty("topLeftPoint") private Position topLeftPoint;
+    @JsonProperty("btmRightPoint") private Position btmRightPoint;
 
     public Viewport(Position topLeftPoint, Position btmRightPoint) {
         this.topLeftPoint = topLeftPoint;

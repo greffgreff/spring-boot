@@ -1,11 +1,13 @@
 package com.GeoStats.TomTomAdapter.poi.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ChargingPark {
-    private String connectorType;
-    private double ratedPowerKW;
-    private int currentA;
-    private String currentType;
-    private int voltageV;
+    @JsonProperty("connectorType") private String connectorType;
+    @JsonProperty("relatedPowerKW") private double ratedPowerKW;
+    @JsonProperty("currentA") private int currentA;
+    @JsonProperty("currentType") private String currentType;
+    @JsonProperty("voltageV") private int voltageV;
 
     public ChargingPark(String connectorType, double ratedPowerKW, int currentA, String currentType, int voltageV) {
         this.connectorType = connectorType;
