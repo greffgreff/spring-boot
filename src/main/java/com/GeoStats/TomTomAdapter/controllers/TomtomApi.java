@@ -22,7 +22,6 @@ public class TomtomApi {
     }
     
     private String query(String urlString) {
-        
         try {
             URL url = new URL(urlString);
             
@@ -31,13 +30,12 @@ public class TomtomApi {
             }
         }
         catch (MalformedURLException e) { }
-
+        
         responseCode = 500;
         return null;
     }
     
     private Boolean checkConnection(URL url) {
-        
         try {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
@@ -50,9 +48,8 @@ public class TomtomApi {
         responseCode = 500;
         return false;
     }
-
+    
     private String getRequestData(URL url) {
-
         StringBuilder informationString = new StringBuilder();
         
         try {
@@ -65,6 +62,6 @@ public class TomtomApi {
         }
         catch (IOException e) { }
 
-        return null;
+        return String.valueOf(informationString);
     }
 }
