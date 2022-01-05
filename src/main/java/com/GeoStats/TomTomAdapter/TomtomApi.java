@@ -1,35 +1,39 @@
 package com.GeoStats.TomTomAdapter;
 
-import java.util.Scanner;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.util.Scanner;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 @Service
-public class TomtomApiHandler {
+public class TomtomApi {
     
     private final String key;
-    private static int responseCode;
+    private int responseCode;
     
-    public TomtomApiHandler(String key) {
+    public TomtomApi(String key) {
         this.key = key;
     }
 
-    public TomtomApiHandler() {
+    public TomtomApi() {
         this("r6SBW2lsmjrN88T2GgG7ddAwmtmJiwiC");
     }
 
     public String getDataFromQuery(String query) {
         String urlString = String.format("https://api.tomtom.com/search/2/poiSearch/%s.json?key=%s", query, key);
         System.out.println(responseCode); // temporary
-        return query(urlString);
+        return queryApi(urlString);
     }
     
-    private String query(String urlString) {
+    private String queryApi(String urlString) {
         try {
             URL url = new URL(urlString);
             
@@ -70,6 +74,9 @@ public class TomtomApiHandler {
         }
         catch (IOException e) { }
 
-        return String.valueOf(informationString);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        JsonElement je = JsonParser.parseString(informationString.toString());
+
+        return gson.toJson(je);
     }
 }
