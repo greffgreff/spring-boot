@@ -1,8 +1,6 @@
 package com.proximity.api.tomtomApi;
 
-import java.util.*;
 import java.util.Scanner;
-
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -10,14 +8,18 @@ import java.net.URL;
 
 public class TomtomApi {
     
-    private final String TOMTOM_API_KEY = "r6SBW2lsmjrN88T2GgG7ddAwmtmJiwiC";
+    private final String key;
     private static int responseCode;
 
-    public List<String> getData(String query) {
+    public TomtomApi(String key) {
+        this.key = key;
+    }
 
-        String urlString = String.format("https://api.tomtom.com/search/2/poiSearch/%s.json?key=%s", query, TOMTOM_API_KEY);
-        String result = query(urlString);
-        return List.of(String.valueOf(responseCode), result);
+    public String getData(String query) {
+
+        String urlString = String.format("https://api.tomtom.com/search/2/poiSearch/%s.json?key=%s", query, key);
+        System.out.println(responseCode); // temporary
+        return query(urlString);
     }
     
     private String query(String urlString) {
@@ -51,6 +53,7 @@ public class TomtomApi {
     }
 
     private String getRequestData(URL url) {
+
         StringBuilder informationString = new StringBuilder();
         
         try {
@@ -60,11 +63,9 @@ public class TomtomApi {
                 informationString.append(scanner.nextLine());
             }
             scanner.close();
-
         }
         catch (IOException e) { }
 
-        responseCode = 500;
         return null;
     }
 }

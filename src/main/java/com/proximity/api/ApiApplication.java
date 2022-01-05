@@ -1,7 +1,6 @@
 package com.proximity.api;
 
-import java.util.List;
-
+import com.proximity.api.proximityApi.ProximityApi;
 import com.proximity.api.tomtomApi.TomtomApi;
 
 import org.springframework.boot.SpringApplication;
@@ -13,13 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ApiApplication {
 	
+	private static TomtomApi tomtomApi;
+	private static ProximityApi proximityApi;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(ApiApplication.class, args);
+		
+		// Inits
+		tomtomApi = new TomtomApi("r6SBW2lsmjrN88T2GgG7ddAwmtmJiwiC");
+		proximityApi = new ProximityApi(tomtomApi);
 	}
 	
 	@GetMapping
-	public List<String> getQueryResult() {
-		TomtomApi tomtomApi = new TomtomApi();
+	public String getQueryResult() {
 		return tomtomApi.getData("beach");
 	}
 }
