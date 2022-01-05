@@ -1,7 +1,5 @@
 package com.GeoStats.TomTomAdapter.poi.models;
 
-import javax.sql.DataSource;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PoiQueryResult {
