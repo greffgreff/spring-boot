@@ -39,10 +39,9 @@ public class Poi {
     private void setBrandsFromJsonNode(JsonNode brandsNames) {
         List<String> brandsFromNode = new ArrayList<>();
         for (int i = 0; i < brandsNames.size(); ++i) {
-            brandsFromNode.add(brandsNames.get(i).get("name").toString());
+            brandsFromNode.add(brandsNames.get(i).get("name").toString().replaceAll("\"", ""));
         }
         brands = Arrays.copyOf(brandsFromNode.toArray(), brandsFromNode.toArray().length, String[].class);
-        System.out.println(brands.toString());
     }
 
     public String[] getBrands() {
@@ -57,7 +56,7 @@ public class Poi {
     @JsonProperty("categories")
     public String[] getCategories() {
         return categories;
-    }
+    } // clean categories
 
     @JsonProperty("classifications")
     private void setClassificationFromJsonNode(JsonNode classificationCodes) {

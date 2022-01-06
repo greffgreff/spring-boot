@@ -1,0 +1,14 @@
+/Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/dto/Poi.java
+/Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/_services/PoiServices.java
+/Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/models/RequestResponse.java
+/Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/interfaces/IPaginatedData.java
+/Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/dto/QuerySummary.java
+/Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/dto/QueryResult.java
+/Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/dto/QueryPoi.java
+/Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/dto/Position.java
+/Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/dto/Address.java
+/Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/_controllers/PoiController.java
+/Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/TomtomApi.java
+/Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/models/BasicPoi.java
+/Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/TomTomApiAdapterApp.java
+/Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/interfaces/IResponseContent.java
