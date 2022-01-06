@@ -23,10 +23,11 @@ public class PoiServices {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            QueryResult result = mapper.readValue(json, QueryResult.class);
-            return result;
+            return mapper.readValue(json, QueryResult.class);
         }
-        catch(JsonProcessingException e) {}
+        catch(JsonProcessingException e) {
+            System.out.println(e);
+        }
 
         return null;
     }

@@ -23,6 +23,6 @@ public class PoiController {
 
 	@GetMapping
 	public QueryResult getQueryResult(@RequestParam(required = false) String query) {
-        return poiController.getParsedDataFromQuery(Optional.ofNullable(query).orElse("beach"));
+        return query != null && !query.isEmpty() ? poiController.getParsedDataFromQuery(query) : poiController.getParsedDataFromQuery("beach");
 	}
 }

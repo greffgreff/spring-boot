@@ -29,7 +29,7 @@ public class TomtomApi {
 
     public String getDataFromQuery(String query) {
         String urlString = String.format("https://api.tomtom.com/search/2/poiSearch/%s.json?key=%s", query, key);
-        // System.out.println(responseCode); // async
+        System.out.println(urlString);
         return queryApi(urlString);
     }
     
@@ -53,6 +53,7 @@ public class TomtomApi {
             conn.setRequestMethod("GET");
             conn.connect();
             responseCode = conn.getResponseCode();
+            System.out.println(responseCode);
             return true;
         }
         catch(IOException ignored) { }
@@ -75,8 +76,8 @@ public class TomtomApi {
         catch (IOException ignored) { }
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        JsonElement je = JsonParser.parseString(informationString.toString());
+        JsonElement jsonString = JsonParser.parseString(informationString.toString());
 
-        return gson.toJson(je);
+        return gson.toJson(jsonString);
     }
 }

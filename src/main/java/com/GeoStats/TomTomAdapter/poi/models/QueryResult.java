@@ -4,11 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class QueryResult {
     @JsonProperty("summary") private QuerySummary summary;
-    @JsonProperty("results") private PoiQueryResult[] queryResults;
+    @JsonProperty("results") private QueryPoi[] queryResults;
 
     public QueryResult() {}
-    
-    public QueryResult(QuerySummary summary, PoiQueryResult[] queryResults) {
+
+    public QueryResult(QuerySummary summary, QueryPoi[] queryResults) {
         this.summary = summary;
         this.queryResults = queryResults;
     }
@@ -17,7 +17,7 @@ public class QueryResult {
         return summary;
     }
 
-    public PoiQueryResult[] getResults() {
+    public QueryPoi[] getResults() {
         return queryResults;
     }
 }

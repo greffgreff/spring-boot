@@ -2,7 +2,7 @@ package com.GeoStats.TomTomAdapter.poi.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties({ "classificationName" })
+@JsonIgnoreProperties({ "classificationName", "names" })
 public class Classification {
     private String code;
 
