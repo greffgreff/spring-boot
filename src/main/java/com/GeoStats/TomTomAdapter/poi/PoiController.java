@@ -5,7 +5,6 @@ import java.util.*;
 import com.GeoStats.TomTomAdapter.poi.models.QueryResult;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,7 +21,7 @@ public class PoiController {
         this.poiController = poiController;
     }
 
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping
 	public QueryResult getQueryResult(@RequestParam(required = false) String query) {
         return poiController.getParsedDataFromQuery(Optional.ofNullable(query).orElse("beach"));
 	}

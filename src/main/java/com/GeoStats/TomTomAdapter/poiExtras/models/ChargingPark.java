@@ -1,4 +1,4 @@
-package com.GeoStats.TomTomAdapter.poi.models;
+package com.GeoStats.TomTomAdapter.poiExtras.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

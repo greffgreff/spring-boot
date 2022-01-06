@@ -1,9 +1,9 @@
 package com.GeoStats.TomTomAdapter.poi.models;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties({ "categorySet" })
 public class Poi {
     @JsonProperty("name") private String name;
     @JsonProperty("phone") private String phone;
@@ -11,18 +11,16 @@ public class Poi {
     @JsonProperty("url") private String url;
     @JsonProperty("categories") private String[] categories;
     @JsonProperty("classifications") private Classification[] classifications;
-    @JsonProperty("categorySet") private CategorySet[] categorySet;
 
     public Poi() {}
     
-    public Poi(String name, String phone, String[] brands, String url, String[] categories, Classification[] classifications, CategorySet[] categorySet) {
+    public Poi(String name, String phone, String[] brands, String url, String[] categories, Classification[] classifications) {
         this.name = name;
         this.phone = phone;
         this.brands = brands;
         this.url = url;
         this.categories = categories;
         this.classifications = classifications;
-        this.categorySet = categorySet;
     }
 
     public String getName() {

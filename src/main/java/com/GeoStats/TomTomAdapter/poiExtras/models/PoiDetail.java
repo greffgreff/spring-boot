@@ -1,15 +1,15 @@
-package com.GeoStats.TomTomAdapter.poi.models;
+package com.GeoStats.TomTomAdapter.poiExtras.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties({ "id" })
 public class PoiDetail {
-    @JsonProperty("id") String id;
     @JsonProperty("sourceName") private String sourceName;
 
     public PoiDetail() {}
 
     public PoiDetail(String id, String sourceName) {
-        this.id = id;
         this.sourceName = sourceName;
     }
 }
