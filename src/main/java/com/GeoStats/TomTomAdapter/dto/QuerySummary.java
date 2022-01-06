@@ -1,7 +1,10 @@
-package com.GeoStats.TomTomAdapter.poi.models;
+package com.GeoStats.TomTomAdapter.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.JsonNode;
+
+import java.util.Arrays;
 
 @JsonIgnoreProperties({ "queryType" })
 public class QuerySummary {
@@ -12,6 +15,7 @@ public class QuerySummary {
     private int totalResults;
     private int fuzzyLevel;
     private Position geoBias;
+    private int[] position;
 
     public QuerySummary() { }
 
@@ -46,7 +50,13 @@ public class QuerySummary {
     }
 
     @JsonProperty("geoBias")
-    public Position getPosition() {
+    public Position getGeoBias() {
         return geoBias;
+    }
+
+    @JsonProperty("geoBias")
+    public void setPosition(JsonNode geoBias) {
+        position = new int[]{geoBias.get("lat").asInt(), geoBias.get("lon").asInt()};
+        System.out.println(Arrays.toString(position));
     }
 }

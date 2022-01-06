@@ -1,7 +1,7 @@
-package com.GeoStats.TomTomAdapter.poi;
+package com.GeoStats.TomTomAdapter._services;
 
 import com.GeoStats.TomTomAdapter.TomtomApi;
-import com.GeoStats.TomTomAdapter.poi.models.QueryResult;
+import com.GeoStats.TomTomAdapter.dto.QueryResult;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -21,14 +21,11 @@ public class PoiServices {
     public QueryResult getParsedDataFromQuery(String query) {
         String json = tomtomApiHandler.getDataFromQuery(query);
         ObjectMapper mapper = new ObjectMapper();
-
         try {
             return mapper.readValue(json, QueryResult.class);
-        }
-        catch(JsonProcessingException e) {
+        } catch (JsonProcessingException e) {
             System.out.println(e);
         }
-
         return null;
     }
 }

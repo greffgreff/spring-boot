@@ -1,10 +1,12 @@
-package com.GeoStats.TomTomAdapter.poi.models;
+package com.GeoStats.TomTomAdapter.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @JsonIgnoreProperties({ "categorySet" })
 public class Poi {
@@ -33,6 +35,20 @@ public class Poi {
         return brands;
     }
 
+    @JsonProperty("brands")
+    private void setBrandsFromJsonNode(JsonNode brandsNames) {
+        List<String> brandsFromNode = new ArrayList<>();
+        for (int i = 0; i < brandsNames.size(); ++i) {
+            brandsFromNode.add(brandsNames.get(i).get("name").toString());
+        }
+        brands = Arrays.copyOf(brandsFromNode.toArray(), brandsFromNode.toArray().length, String[].class);
+        System.out.println(brands.toString());
+    }
+
+    public String[] getBrands() {
+        return brands;
+    }
+
     @JsonProperty("url")
     public String getUrl() {
         return url;
@@ -44,7 +60,7 @@ public class Poi {
     }
 
     @JsonProperty("classifications")
-    private void getClassificationFromJsonNode(JsonNode classificationCodes) {
+    private void setClassificationFromJsonNode(JsonNode classificationCodes) {
         classification = classificationCodes.get(0).get("code").asText();
     }
 
