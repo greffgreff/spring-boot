@@ -1,58 +1,51 @@
 package com.GeoStats.TomTomAdapter.poi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties({ "queryType" })
 public class QuerySummary {
-    @JsonProperty("query") private String query;
-    @JsonProperty("queryType") private String queryType;
-    @JsonProperty("queryTime") private int queryTime;
-    @JsonProperty("numResults") private int numResults;
-    @JsonProperty("offset") private int offset;
-    @JsonProperty("totalResults") private int totalResults;
-    @JsonProperty("fuzzyLevel") private int fuzzyLevel;
-    @JsonProperty("geoBias") private Position geoBias;
+    private String query;
+    private int queryTime;
+    private int offset;         // page
+    private int numResults;     // results count
+    private int totalResults;
+    private int fuzzyLevel;
+    private Position geoBias;
 
-    public QuerySummary() {}
-    
-    public QuerySummary(String query, String queryType, int queryTime, int numResults, int offset, int totalResults, int fuzzyLevel, Position geoBias) {
-        this.query = query;
-        this.queryType = queryType;
-        this.queryTime = queryTime;
-        this.numResults = numResults;
-        this.offset = offset;
-        this.totalResults = totalResults;
-        this.fuzzyLevel = fuzzyLevel;
-        this.geoBias = geoBias;
-    }
+    public QuerySummary() { }
 
+    @JsonProperty("query")
     public String getQuery() {
         return query;
     }
 
-    public String getQueryType() {
-        return queryType;
-    }
-
+    @JsonProperty("queryTime")
     public int getQueryTime() {
         return queryTime;
     }
 
-    public int getNumberOfResults() {
-        return numResults;
-    }
-
+    @JsonProperty("offset")
     public int getOffset() {
         return offset;
     }
 
+    @JsonProperty("numResults")
+    public int getNumResults() {
+        return numResults;
+    }
+
+    @JsonProperty("totalResults")
     public int getTotalResults() {
         return totalResults;
     }
 
+    @JsonProperty("fuzzyLevel")
     public int getFuzzyLevel() {
         return fuzzyLevel;
     }
 
+    @JsonProperty("geoBias")
     public Position getPosition() {
         return geoBias;
     }

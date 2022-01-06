@@ -3,21 +3,18 @@ package com.GeoStats.TomTomAdapter.poi.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class QueryResult {
-    @JsonProperty("summary") private QuerySummary summary;
-    @JsonProperty("results") private QueryPoi[] queryResults;
+    private QuerySummary summary;
+    private QueryPoi[] results;
 
-    public QueryResult() {}
+    public QueryResult() { }
 
-    public QueryResult(QuerySummary summary, QueryPoi[] queryResults) {
-        this.summary = summary;
-        this.queryResults = queryResults;
-    }
-
+    @JsonProperty("summary")
     public QuerySummary getSummary() {
         return summary;
     }
 
+    @JsonProperty("results")
     public QueryPoi[] getResults() {
-        return queryResults;
+        return results;
     }
 }

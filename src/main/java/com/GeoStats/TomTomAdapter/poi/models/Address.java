@@ -19,38 +19,5 @@ public class Address {
         @JsonProperty("countrySubdivisionName") private String countrySubdivisionName;
         @JsonProperty("localName") private String localName;
 
-        public Address() {}
-
-        public Address(
-            int streetNumber, 
-            String streetName, 
-            String municipalitySubdivision, 
-            String municipality, 
-            String countrySecondarySubdivision, 
-            String countryTertiarySubdivision, 
-            String countrySubdivision, 
-            String postalCode, 
-            String extendedPostalCode, 
-            String countryCode, 
-            String country, 
-            String countryCodeISO3, 
-            String freeformAddress, 
-            String countrySubdivisionName, 
-            String localName
-        ) {
-            this.streetNumber = streetNumber;
-            this.streetName = streetName;
-            this.municipalitySubdivision = municipalitySubdivision;
-            this.municipality = municipality;
-            this.countrySecondarySubdivision = countrySecondarySubdivision;
-            this.countryTertiarySubdivision = countryTertiarySubdivision;
-            this.countrySubdivision = countrySubdivision;
-            this.postalCode = postalCode;
-            this.extendedPostalCode = extendedPostalCode;
-            this.countryCode = countryCode;
-            this.country = country;
-            this.countryCodeISO3 = countryCodeISO3;
-            this.freeformAddress = freeformAddress;
-            this.countrySubdivisionName = countrySubdivisionName;
-        }
+        public Address() { }
 }

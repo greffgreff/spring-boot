@@ -3,20 +3,17 @@ package com.GeoStats.TomTomAdapter.poi.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Position {
-    @JsonProperty("lat") private float lat;        
-    @JsonProperty("lon") private float lon;        
+    private float lat;
+    private float lon;
 
-    public Position() {}
-    
-    public Position(float lat, float lon) {
-        this.lat = lat;
-        this.lon = lon;
-    }
+    public Position() { }
 
+    @JsonProperty("lon")
     public float getLon() {
         return lon;
     }
 
+    @JsonProperty("lat")
     public float getLat() {
         return lat;
     }

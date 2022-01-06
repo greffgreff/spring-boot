@@ -5,38 +5,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties({ "type", "id", "relatedPois", "mapCodes", "dataSources", "chargingPark", "entryPoints", "viewport", "info" })
 public class QueryPoi {
-    @JsonProperty("poi") private Poi poi;
-    @JsonProperty("address") private Address address;
-    @JsonProperty("score") private double score;
-    @JsonProperty("distance") private double distance;
-    @JsonProperty("position") private Position position;
+    private Poi poi;
+    private Address address;
+    private double score;
+    private double distance;
+    private Position position;
 
-    public QueryPoi() {}
-    
-    public QueryPoi(double score, double distance, Poi poi, Address address, Position position) {
-        this.score = score;
-        this.distance = distance;
-        this.poi = poi;
-        this.address = address;
-        this.position = position;
-    }
+    public QueryPoi() { }
 
+    @JsonProperty("score")
     public double getScore() {
         return score;
     }
 
+    @JsonProperty("distance")
     public double getDistance() {
         return distance;
     }
 
+    @JsonProperty("address")
     public Address getAddress() {
         return address;
     }
 
+    @JsonProperty("poi")
     public Poi getPoi() {
         return poi;
     }
 
+    @JsonProperty("position")
     public Position getPosition() {
         return position;
     }
