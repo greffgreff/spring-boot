@@ -1,6 +1,8 @@
 package com.GeoStats.TomTomAdapter.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 
@@ -26,20 +28,17 @@ public class Poi {
     }
 
     @JsonProperty("phone")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getPhone() {
         return phone;
     }
 
     @JsonProperty("brands")
-    public String[] brands() {
-        return brands;
-    }
-
-    @JsonProperty("brands")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private void setBrandsFromJsonNode(JsonNode brandsNames) {
         List<String> brandsFromNode = new ArrayList<>();
         for (int i = 0; i < brandsNames.size(); ++i) {
-            brandsFromNode.add(brandsNames.get(i).get("name").toString().replaceAll("\"", ""));
+            brandsFromNode.add(brandsNames.get(i).get("name").textValue());
         }
         brands = Arrays.copyOf(brandsFromNode.toArray(), brandsFromNode.toArray().length, String[].class);
     }
@@ -49,6 +48,7 @@ public class Poi {
     }
 
     @JsonProperty("url")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getUrl() {
         return url;
     }

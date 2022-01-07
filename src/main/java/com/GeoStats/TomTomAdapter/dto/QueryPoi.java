@@ -1,7 +1,9 @@
 package com.GeoStats.TomTomAdapter.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.JsonNode;
 
 @JsonIgnoreProperties({ "type", "id", "relatedPois", "mapCodes", "dataSources", "chargingPark", "entryPoints", "viewport", "info" })
 public class QueryPoi {
