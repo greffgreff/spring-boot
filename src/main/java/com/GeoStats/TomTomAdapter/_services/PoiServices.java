@@ -1,9 +1,12 @@
 package com.GeoStats.TomTomAdapter._services;
 
 import com.GeoStats.TomTomAdapter.TomtomApi;
+import com.GeoStats.TomTomAdapter.dto.Address;
 import com.GeoStats.TomTomAdapter.dto.Poi;
 import com.GeoStats.TomTomAdapter.dto.QueryPoi;
 import com.GeoStats.TomTomAdapter.dto.QueryResult;
+import com.GeoStats.TomTomAdapter.models.Pagination;
+import com.GeoStats.TomTomAdapter.models.ResponseContent;
 import com.GeoStats.TomTomAdapter.models.ResponsePoi;
 import com.GeoStats.TomTomAdapter.models.RequestResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -31,19 +34,36 @@ public class PoiServices {
         RequestResponse response = new RequestResponse();
         response.setResponseCode(200);
         response.setTimestamp(new Timestamp(System.currentTimeMillis()));
+
+        ResponseContent content = new ResponseContent();
+
         List<ResponsePoi> responsePoiList = new ArrayList<>();
         assert queryResult != null;
         for (QueryPoi queryObj: queryResult.getResults()) {
+            Poi queriedPoi = queryObj.getPoi();
             ResponsePoi poi = new ResponsePoi();
-            Poi queryPoi = queryObj.getPoi();
-
-            poi.setName(queryPoi.getName());
-            poi.setPhone(queryPoi.getPhone());
-            poi.setWebsite(queryPoi.getUrl());
-
+            poi.setName(queriedPoi.getName());
+            poi.setPhone(queriedPoi.getPhone());
+            poi.setWebsite(queriedPoi.getUrl());
+            poi.setBrands(queriedPoi.getBrands());
+            poi.setCategories(queriedPoi.getCategories());
+            poi.setType(queriedPoi.getClassification());
+            poi.setDistance(queryObj.getDistance());
+            poi.setScore(queryObj.getScore());
+            poi.setPosition(queryObj.getPosition());
+            poi.setAddress(queryObj.getAddress());
             responsePoiList.add(poi);
         }
-        response.setContent(responsePoiList.toArray());
+
+        Pagination pagination = new Pagination();
+        pagination.setPageNumber(0);
+        pagination.setResultCount(10);
+
+        content.setPagination(pagination);
+        content.setContent(responsePoiList.toArray());
+
+        response.setResponseContent(content);
+
         return response;
     }
 

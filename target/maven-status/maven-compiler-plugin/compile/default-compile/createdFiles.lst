@@ -1,12 +1,12 @@
 com/GeoStats/TomTomAdapter/dto/Position.class
-com/GeoStats/TomTomAdapter/interfaces/IPaginatedData.class
 com/GeoStats/TomTomAdapter/dto/Poi.class
 com/GeoStats/TomTomAdapter/models/ResponsePoi.class
 com/GeoStats/TomTomAdapter/models/RequestResponse.class
-com/GeoStats/TomTomAdapter/interfaces/IResponseContent.class
+com/GeoStats/TomTomAdapter/models/Pagination.class
 com/GeoStats/TomTomAdapter/dto/QueryResult.class
 com/GeoStats/TomTomAdapter/_services/PoiServices.class
 com/GeoStats/TomTomAdapter/dto/QueryPoi.class
 com/GeoStats/TomTomAdapter/dto/QuerySummary.class
 com/GeoStats/TomTomAdapter/_controllers/PoiController.class
 com/GeoStats/TomTomAdapter/dto/Address.class
+com/GeoStats/TomTomAdapter/models/ResponseContent.class

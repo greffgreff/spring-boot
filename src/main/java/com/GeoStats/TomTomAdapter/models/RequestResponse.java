@@ -1,13 +1,11 @@
 package com.GeoStats.TomTomAdapter.models;
 
-import com.GeoStats.TomTomAdapter.interfaces.IResponseContent;
-
 import java.sql.Timestamp;
 
-public class RequestResponse implements IResponseContent {
+public class RequestResponse {
     private int responseCode;
     private Timestamp timestamp;
-    private Object[] content;
+    private ResponseContent responseContent;
 
     public int getResponseCode() {
         return responseCode;
@@ -25,11 +23,11 @@ public class RequestResponse implements IResponseContent {
         this.timestamp = timestamp;
     }
 
-    public Object[] getContent() {
-        return content;
+    public ResponseContent getResponseContent() {
+        return responseContent;
     }
 
-    public void setContent(Object[] content) {
-        this.content = content;
+    public void setResponseContent(ResponseContent responseContent) {
+        this.responseContent = responseContent;
     }
 }

@@ -2,6 +2,7 @@ package com.GeoStats.TomTomAdapter.models;
 
 import com.GeoStats.TomTomAdapter.dto.Address;
 import com.GeoStats.TomTomAdapter.dto.Position;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 public class ResponsePoi {
     private String name;
@@ -12,26 +13,28 @@ public class ResponsePoi {
     private String[] brands;
     private Address address;
     private Position position;
-    private float score;
+    private double score;
+    private double distance;
 
-    public float getDistance() {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public double getDistance() {
         return distance;
     }
 
-    public void setDistance(float distance) {
+    public void setDistance(double distance) {
         this.distance = distance;
     }
 
-    private float distance;
-
-    public float getScore() {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public double getScore() {
         return score;
     }
 
-    public void setScore(float score) {
+    public void setScore(double score) {
         this.score = score;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getName() {
         return name;
     }
@@ -40,6 +43,7 @@ public class ResponsePoi {
         this.name = name;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getType() {
         return type;
     }
@@ -48,6 +52,7 @@ public class ResponsePoi {
         this.type = type;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String[] getCategories() {
         return categories;
     }
@@ -56,6 +61,7 @@ public class ResponsePoi {
         this.categories = categories;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getPhone() {
         return phone;
     }
@@ -64,6 +70,7 @@ public class ResponsePoi {
         this.phone = phone;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getWebsite() {
         return website;
     }
@@ -72,6 +79,7 @@ public class ResponsePoi {
         this.website = website;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String[] getBrands() {
         return brands;
     }
@@ -80,6 +88,7 @@ public class ResponsePoi {
         this.brands = brands;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public Address getAddress() {
         return address;
     }
@@ -88,6 +97,7 @@ public class ResponsePoi {
         this.address = address;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public Position getPosition() {
         return position;
     }
