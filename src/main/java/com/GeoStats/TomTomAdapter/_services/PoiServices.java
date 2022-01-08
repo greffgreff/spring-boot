@@ -32,7 +32,6 @@ public class PoiServices {
     public RequestResponse getRequestResponseFromQuery(String query) {
         QueryResult queryResult = getQueryResultFromQuery(query);
         RequestResponse response = new RequestResponse();
-        response.setResponseCode(200);
         response.setTimestamp(new Timestamp(System.currentTimeMillis()));
 
         ResponseContent content = new ResponseContent();

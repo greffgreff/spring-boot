@@ -3,17 +3,8 @@ package com.GeoStats.TomTomAdapter.models;
 import java.sql.Timestamp;
 
 public class RequestResponse {
-    private int responseCode;
     private Timestamp timestamp;
     private ResponseContent responseContent;
-
-    public int getResponseCode() {
-        return responseCode;
-    }
-
-    public void setResponseCode(int responseCode) {
-        this.responseCode = responseCode;
-    }
 
     public Timestamp getTimestamp() {
         return timestamp;
