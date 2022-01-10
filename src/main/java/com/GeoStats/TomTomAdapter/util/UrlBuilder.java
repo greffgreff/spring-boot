@@ -29,9 +29,8 @@ public class UrlBuilder {
         protocol = "https";
     }
 
-    public UrlBuilder setRoute(String route) {
+    public void setRoute(String route) {
         this.route = route;
-        return this;
     }
 
     public UrlBuilder setDomain(String domain) {
@@ -79,9 +78,9 @@ public class UrlBuilder {
         }
 
         StringBuilder url = new StringBuilder();
-        url.append(String.format("#s://", protocol));
+        url.append(String.format("%s://", protocol));
         url.append(String.format("%s/", domain));
-        url.append(String.format("%s/", route));
+        url.append(String.format("%s", route));
 
         if (queryStrings.size() != 0) {
             url.append(String.format("?%s", queryToString()));
