@@ -1,14 +1,13 @@
 package com.GeoStats.TomTomAdapter._services;
 
 import com.GeoStats.TomTomAdapter.TomtomApi;
-import com.GeoStats.TomTomAdapter.dto.Address;
 import com.GeoStats.TomTomAdapter.dto.Poi;
 import com.GeoStats.TomTomAdapter.dto.QueryPoi;
 import com.GeoStats.TomTomAdapter.dto.QueryResult;
 import com.GeoStats.TomTomAdapter.models.Pagination;
 import com.GeoStats.TomTomAdapter.models.ResponseContent;
 import com.GeoStats.TomTomAdapter.models.ResponsePoi;
-import com.GeoStats.TomTomAdapter.models.RequestResponse;
+import com.GeoStats.TomTomAdapter.models.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -21,7 +20,6 @@ import java.util.List;
 
 @Service
 public class PoiServices {
-    
     private final TomtomApi tomtomApiHandler;
 
     @Autowired
@@ -29,13 +27,12 @@ public class PoiServices {
         this.tomtomApiHandler = tomtomApiHandler;
     }
 
-    public RequestResponse getRequestResponseFromQuery(String query) {
-        QueryResult queryResult = getQueryResultFromQuery(query);
-        RequestResponse response = new RequestResponse();
+    public ResponseBody getResponseBody(String query) {
+        QueryResult queryResult = getQueryFromApi(query);
+        ResponseBody response = new ResponseBody();
         response.setTimestamp(new Timestamp(System.currentTimeMillis()));
 
         ResponseContent content = new ResponseContent();
-
         List<ResponsePoi> responsePoiList = new ArrayList<>();
         assert queryResult != null;
         for (QueryPoi queryObj: queryResult.getResults()) {
@@ -57,18 +54,16 @@ public class PoiServices {
         Pagination pagination = new Pagination();
         pagination.setPageNumber(0);
         pagination.setResultCount(10);
-
         content.setPagination(pagination);
         content.setContent(responsePoiList.toArray());
-
         response.setResponseContent(content);
 
         return response;
     }
 
-    private QueryResult getQueryResultFromQuery(String query) {
+    private QueryResult getQueryFromApi(String query) {
         String finalQuery =  query != null && !query.isEmpty() ? query : "beach"; // handle null query string
-        String json = tomtomApiHandler.getDataFromQuery(finalQuery);
+        String json = tomtomApiHandler.makeApiRequest("search/2/poiSearch", finalQuery);
         ObjectMapper mapper = new ObjectMapper();
         try {
             return mapper.readValue(json, QueryResult.class);

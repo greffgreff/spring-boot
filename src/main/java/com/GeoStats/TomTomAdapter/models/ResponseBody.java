@@ -2,7 +2,7 @@ package com.GeoStats.TomTomAdapter.models;
 
 import java.sql.Timestamp;
 
-public class RequestResponse {
+public class ResponseBody {
     private Timestamp timestamp;
     private ResponseContent responseContent;
 

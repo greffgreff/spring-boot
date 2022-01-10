@@ -1,5 +1,6 @@
 package com.GeoStats.TomTomAdapter;
 
+import com.GeoStats.TomTomAdapter.util.UrlBuilder;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -15,7 +16,6 @@ import java.net.URL;
 
 @Service
 public class TomtomApi {
-    
     private final String key;
 
     public TomtomApi(String key) {
@@ -26,19 +26,20 @@ public class TomtomApi {
         this("r6SBW2lsmjrN88T2GgG7ddAwmtmJiwiC");
     }
 
-    public String getDataFromQuery(String query) {
-        String urlString = String.format("https://api.tomtom.com/search/2/poiSearch/%s.json?key=%s", query, key);
-        System.out.println(urlString);
-        return queryApi(urlString);
+    public String makeApiRequest(String route, String query) {
+        UrlBuilder builder = new UrlBuilder();
+        builder.setDomain("api.tomtom.com");
+        builder.setRoute(route);
+        String url = String.format("%s/%s.json?key=%s", builder, query, key);
+        System.out.println(url);
+        return queryApi(url);
     }
     
     private String queryApi(String urlString) {
         try {
             URL url = new URL(urlString);
-            
-            if (checkConnection(url)) {
+            if (checkConnection(url))
                 return getRequestData(url);
-            }
         }
         catch (MalformedURLException ignore) { }
         return null;
@@ -61,10 +62,8 @@ public class TomtomApi {
         
         try {
             Scanner scanner = new Scanner(url.openStream());
-
-            while (scanner.hasNext()) {
+            while (scanner.hasNext())
                 informationString.append(scanner.nextLine());
-            }
             scanner.close();
         }
         catch (IOException ignored) { }
