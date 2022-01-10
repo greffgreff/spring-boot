@@ -84,17 +84,21 @@ public class UrlBuilder {
         url.append(String.format("%s/", route));
 
         if (queryStrings.size() != 0) {
-            StringBuilder query = new StringBuilder();
-            for (Map.Entry<String, String> queryString : queryStrings.entrySet()) {
-                query.append(String.format("%s=%s", queryString.getKey(), queryString.getValue()));
-            }
-            url.append(String.format("?%s", query));
+            url.append(String.format("?%s", queryToString()));
         }
 
         return url.toString();
     }
 
-    public void checkUrl() throws Exception {
+    public String queryToString() {
+        StringBuilder query = new StringBuilder();
+        for (Map.Entry<String, String> queryString : queryStrings.entrySet()) {
+            query.append(String.format("%s=%s", queryString.getKey(), queryString.getValue()));
+        }
+        return query.toString();
+    }
+
+    private void checkUrl() throws Exception {
         if (!protocol.isEmpty())
             throw new Exception("Incomplete url, missing protocol");
         if (!domain.isEmpty())
@@ -103,7 +107,7 @@ public class UrlBuilder {
             throw new Exception("Incomplete url, missing route");
     }
 
-    public void checkParam(String param) throws Exception {
+    private void checkParam(String param) throws Exception {
         for (String key : queryStrings.keySet()) {
             if (Objects.equals(key, param)) {
                 throw new Exception("Parameter already exists");
