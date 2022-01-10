@@ -17,8 +17,7 @@ import java.net.URL;
 public class TomtomApi {
     
     private final String key;
-    private int responseCode;
-    
+
     public TomtomApi(String key) {
         this.key = key;
     }
@@ -42,8 +41,6 @@ public class TomtomApi {
             }
         }
         catch (MalformedURLException ignore) { }
-        
-        responseCode = 500; // temporary
         return null;
     }
     
@@ -52,13 +49,10 @@ public class TomtomApi {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.connect();
-            responseCode = conn.getResponseCode();
-            System.out.println(responseCode);
+            System.out.println(conn.getResponseCode());
             return true;
         }
         catch(IOException ignored) { }
-        
-        responseCode = 500;
         return false;
     }
     
@@ -77,7 +71,6 @@ public class TomtomApi {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         JsonElement jsonString = JsonParser.parseString(informationString.toString());
-
         return gson.toJson(jsonString);
     }
 }
