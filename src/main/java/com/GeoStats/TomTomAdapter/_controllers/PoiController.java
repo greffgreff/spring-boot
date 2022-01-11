@@ -1,7 +1,6 @@
 package com.GeoStats.TomTomAdapter._controllers;
 
 import com.GeoStats.TomTomAdapter._services.PoiServices;
-
 import com.GeoStats.TomTomAdapter.models.ResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,7 @@
 /Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/dto/Poi.java
 /Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/models/Pagination.java
 /Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/_services/PoiServices.java
+/Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/util/UrlBuilder.java
 /Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/dto/QuerySummary.java
 /Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/dto/QueryResult.java
 /Users/chandlergreff/Desktop/repos/proximity/spring-boot/src/main/java/com/GeoStats/TomTomAdapter/dto/QueryPoi.java

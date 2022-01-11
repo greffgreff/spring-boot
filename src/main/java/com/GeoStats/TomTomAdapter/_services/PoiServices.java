@@ -5,12 +5,11 @@ import com.GeoStats.TomTomAdapter.dto.Poi;
 import com.GeoStats.TomTomAdapter.dto.QueryPoi;
 import com.GeoStats.TomTomAdapter.dto.QueryResult;
 import com.GeoStats.TomTomAdapter.models.Pagination;
+import com.GeoStats.TomTomAdapter.models.ResponseBody;
 import com.GeoStats.TomTomAdapter.models.ResponseContent;
 import com.GeoStats.TomTomAdapter.models.ResponsePoi;
-import com.GeoStats.TomTomAdapter.models.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,8 +32,8 @@ public class PoiServices {
         response.setTimestamp(new Timestamp(System.currentTimeMillis()));
 
         ResponseContent content = new ResponseContent();
+
         List<ResponsePoi> responsePoiList = new ArrayList<>();
-        assert queryResult != null;
         for (QueryPoi queryObj: queryResult.getResults()) {
             Poi queriedPoi = queryObj.getPoi();
             ResponsePoi poi = new ResponsePoi();
@@ -62,11 +61,19 @@ public class PoiServices {
     }
 
     private QueryResult getQueryFromApi(String query) {
-        String finalQuery =  query != null && !query.isEmpty() ? query : "beach"; // handle null query string
-        String json = tomtomApiHandler.makeApiRequest("search/2/poiSearch", finalQuery);
+        String rawJson = "";
+
+        try {
+            String route = "search/2/poiSearch";
+            rawJson = tomtomApiHandler.makeApiRequest(route, query);
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+
         ObjectMapper mapper = new ObjectMapper();
         try {
-            return mapper.readValue(json, QueryResult.class);
+            return mapper.readValue(rawJson, QueryResult.class);
         }
         catch (JsonProcessingException ignore) { }
         return null;

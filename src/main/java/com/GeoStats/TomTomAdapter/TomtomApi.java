@@ -5,14 +5,13 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.util.Scanner;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Scanner;
 
 @Service
 public class TomtomApi {
@@ -26,7 +25,10 @@ public class TomtomApi {
         this("r6SBW2lsmjrN88T2GgG7ddAwmtmJiwiC");
     }
 
-    public String makeApiRequest(String route, String query) {
+    public String makeApiRequest(String route, String query) throws Exception {
+        if (query == null || query.isEmpty())
+            throw new Exception("Cannot make API request with empty query string");
+
         UrlBuilder builder = new UrlBuilder();
         builder.setDomain("api.tomtom.com");
         builder.setRoute(route);
