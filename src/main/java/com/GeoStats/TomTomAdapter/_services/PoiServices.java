@@ -36,18 +36,18 @@ public class PoiServices {
         List<ResponsePoi> responsePoiList = new ArrayList<>();
         for (QueryPoi queryObj: queryResult.getResults()) {
             Poi queriedPoi = queryObj.getPoi();
-            ResponsePoi poi = new ResponsePoi();
-            poi.setName(queriedPoi.getName());
-            poi.setPhone(queriedPoi.getPhone());
-            poi.setWebsite(queriedPoi.getUrl());
-            poi.setBrands(queriedPoi.getBrands());
-            poi.setCategories(queriedPoi.getCategories());
-            poi.setType(queriedPoi.getClassification());
-            poi.setDistance(queryObj.getDistance());
-            poi.setScore(queryObj.getScore());
-            poi.setPosition(queryObj.getPosition());
-            poi.setAddress(queryObj.getAddress());
-            responsePoiList.add(poi);
+            ResponsePoi.Builder builder = new ResponsePoi.Builder();
+            builder.setName(queriedPoi.getName());
+            builder.setPhone(queriedPoi.getPhone());
+            builder.setWebsite(queriedPoi.getUrl());
+            builder.setBrands(queriedPoi.getBrands());
+            builder.setCategories(queriedPoi.getCategories());
+            builder.setType(queriedPoi.getClassification());
+            builder.setDistance(queryObj.getDistance());
+            builder.setScore(queryObj.getScore());
+            builder.setPosition(queryObj.getPosition());
+            builder.setAddress(queryObj.getAddress());
+            responsePoiList.add(builder.build());
         }
 
         Pagination pagination = new Pagination();

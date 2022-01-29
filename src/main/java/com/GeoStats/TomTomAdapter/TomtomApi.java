@@ -33,7 +33,9 @@ public class TomtomApi {
         builder.setDomain("api.tomtom.com");
         builder.setRoute(route);
         String url = String.format("%s/%s.json?key=%s", builder, query, key);
+
         System.out.println(url);
+
         return queryApi(url);
     }
     
